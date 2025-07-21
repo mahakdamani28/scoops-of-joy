@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout - Scoops of Joy </title>
+  <!-- Main CSS -->
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
+    <!-- AOS CSS -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+  
+    <header class="site-header" id="home">
+        <div class="header-content">
+            <img src="https://media.istockphoto.com/id/491828206/photo/ice-cream-cart.jpg?s=2048x2048&w=is&k=20&c=m8UBL2s4Uqd2XJxNwwuhO2J8IJXjfi1kCxt2jsiLCSk=" alt="Icecream Cart" class="cart-icon"/>
+        <div class="title-text">
+        <h1 data-aos="zoom in">Scoops Of Joy  🍦  </h1>
+        <p data-aos="fade-down" class="tagline">Taste the magic in every scoop! :) 🍨  </p>
+        <img src="brand_logo.jpg" alt="brand logo" class="logo">
+        </div>
+        </div>
+    </header>
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="cart.html" id="cart-link">🛒 Cart (<span id="cart-count">0</span>)</a>
+    </nav>
+  
+
+  <section class="checkout-section" 
+  data-aos="zoom-in">
+    <h2 class="section-title">Checkout!</h2>
+    <div id="selected-item" class="selected-item-box"></div>
+    <form id="checkout-form"
+    action="thankyou.html" method="get">
+      <label><b>Name:</b>
+        <input type="text" name="name" placeholder="your name" />
+      </label><br />
+      <label><b>Email:</b>
+        <input type="email" name="email" placeholder="your email" required />
+      </label><br />
+      <label><b>Address:</b>
+        <textarea name="address" placeholder="your address"></textarea>
+      </label><br />
+      <button type="submit" class="btn-buy">Checkout</button>
+    </form>
+
+</section>
+ <footer>
+  <div class="footer-container">
+    <div class="footer-left">
+      <h3>Scoops of Joy</h3>
+      <p>23,Yash Plaza, Ambedkar Square, Nagpur, Maharashtra</p>
+      <p>📞 +91 8149645247</p>
+      <p>📧 info@scoopsofjoy.com</p>
+    </div>
+    <div class="footer-right">
+      <a href="https://www.instagram.com" target="_blank">Instagram</a>
+      <a href="https://www.facebook.com" target="_blank">Facebook</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+  </div>
+</footer>
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+  <script>
+    document.getElementById("checkout-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      localStorage.removeItem("cart");
+      window.location.href = "thankyou.html";
+    });
+  </script>
+  
+    <script src="script.js"></script>
+        <script>
+  const item = JSON.parse(localStorage.getItem("buyItem"));
+  const itemBox = document.getElementById("selected-item");
+
+  if (item && itemBox) {
+    itemBox.innerHTML = `<h3>You are buying: ${item.name} - ₹${item.price}</h3>`;
+  } else {
+    itemBox.innerHTML = `<h3>No item selected. Please go to the menu and select a product.</h3>`;
+  }
+</script>
+</body>
+</html>

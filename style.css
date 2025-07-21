@@ -1,0 +1,487 @@
+html,body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family:'Poppins',sans-serif;
+    background-color: #fff8f0;
+    color: #333;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+.page-container{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    background-color: #f08080;
+    padding: 15px 0;
+    width: 100%;
+}
+
+.navbar a{
+    margin: 0 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: transform 0.3 ease;
+}
+
+.navbar a:hover{
+    transform: scale(1.2);
+}
+
+.section-heading {
+    text-align: center;
+    font-size: 36px;
+    color: #ff6f91;
+    margin: 40px 0 20px;
+    font-family: 'Pacifico',cursive;
+    animation: popIn 1s ease;
+}
+
+.logo {
+  object-fit: contain;
+  width: 100px;
+  height: auto;
+  margin: 10px auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.flavors{
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    padding: 40px;
+    gap: 30px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.flavor-card{
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    width: 200px;
+    box-shadow: 0 4px 10px rgba(0,0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.flavor-card:hover{
+    transform: translateY(-10px) scale(1.05);
+}
+
+.flavor-card img{
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+footer {
+    background: #f08080;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    font-weight: bold;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 300px;
+}
+
+ .site-header{
+    background: linear-gradient(to right, #ff9a9e,#fad0c4);
+    padding: 20px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  text-align: center;
+  border-bottom: 2px solid #f08080;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  flex-direction: column;
+  z-index: 1000;  
+}
+
+.site-header h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 48px;
+  color: #fff6c1;
+  margin: 0;
+  animation: popIn 1s ease;
+  transition: color 0.5s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.site-header h1:hover{
+    color: #ff69b4;
+}
+
+.site-header .tagline{
+  font-size: 18px;
+  color: #fffaf0;
+  font-weight: 500;
+  margin-top: 10px;
+  letter-spacing: 1px;
+}
+
+/* Animation */
+@keyframes popIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1);opacity:1;}
+}
+
+.cart-icon {
+    position: static;
+   margin: 10px auto;
+   display: block;
+    width: 100px;
+    height: auto;
+    object-fit: contain;
+    animation: floatCart 2s infinite ease-in-out;
+}
+
+
+@keyframes floatCart {
+    0% { transform: translateY(0);}
+    50% { transform: translateY(-8px);}
+    100% { transform: translateY(0);}
+}
+
+.title-text {
+    text-align: center;
+}
+
+.title-text h1{
+    font-family: "Pacifico",cursive;
+    font-size: 60px;
+    color: #fff8f0;
+    margin: 0;
+    white-space: normal;
+    transition: color 0.3s ease;
+}
+
+.title-text h1:hover{
+    color: #ff69b4;
+}
+
+.title-text .tagline{
+    font-size: 30px;
+    color: #fff;
+    font-weight: 500;
+    margin-top: 10px;
+    letter-spacing: 1px;
+}
+
+.about-section {
+    padding: 60px 40px;
+    text-align: center;
+    max-width: 900px;
+    margin: auto;
+}
+
+.about-section .section-heading {
+    font-family: 'Pacifico',cursive;
+    font-size: 36px;
+    color: #e91e63;
+    margin-bottom: 20px;
+}
+
+.about-text{
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+}
+
+.contact-section{
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.contact-form{
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+.contact-form input,
+.contact-form textarea{
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.contact-form button{
+    padding: 12px 20px;
+    background-color: #ff8080;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.contact-form button:hover{
+    background-color: #ff4d4d;
+}
+
+.menu-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.btn-buy, .btn-cart {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-buy {
+  background-color: #e91e63;
+  color: white;
+}
+
+.btn-cart {
+  background-color: #03a9f4;
+  color: white;
+}
+
+.btn-buy:hover {
+  background-color: #c2185b;
+}
+
+.btn-cart:hover {
+  background-color: #0288d1;
+}
+
+.cart-items {
+    margin-top: 20px;
+}
+
+.cart-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #fff3f3;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.checkout-section,
+.thankyou-section {
+  max-width: 500px;
+  margin: 80px auto;
+  padding: 20px;
+  text-align: center;
+  background: #fffaf0;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.checkout-section input,
+.checkout-section textarea {
+  width: 90%;
+  padding: 8px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.checkout-form {
+  max-width: 100%;
+  width: 400px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fffaf0;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.checkout-form input,
+.checkout-form button {
+  padding: 10px;
+  font-size: 16px;
+  border-radius:5px;
+}
+.section-title{
+    color: #c2185b;
+    font-family: "pacifico",cursive;
+    font-size: 30px;
+}
+
+.thankyou-container {
+  text-align: center;
+  margin-top: 100px;
+  padding: 20px;
+}
+
+.thank-heading {
+  font-size: 3rem;
+  font-family: 'Pacifico', cursive;
+  color: #ff69b4;
+  text-shadow: 2px 2px 4px #ffaacc;
+  margin-bottom: 20px;
+  animation: fadeInDown 1s ease-in-out;
+}
+
+.thank-message {
+  font-size: 1.5rem;
+  color: #555;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  animation: fadeInUp 1s ease-in-out;
+  font-weight: bolder;
+}
+
+/* Optional animations */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.logo, .cart-icon {
+  object-fit: contain;
+  margin: 10px auto;
+    display: block;
+    width: 100px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+.logo:hover{
+  transform: scale(1.05);
+}
+
+/* Default layout (desktop/tablet) */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Each card layout */
+.card {
+  flex: 1 1 calc(33.333% - 40px); /* 3 cards in a row with some gap */
+  max-width: 300px;
+}
+
+/* Tablet view (already working fine, keeping for reference) */
+@media (max-width: 991px) {
+  .card {
+    flex: 1 1 calc(45% - 40px);
+  }
+}
+
+/* ✅ iPhone 14 and other small devices */
+@media (max-width: 576px) {
+  .card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+  .title-text h1 {
+    font-size: 26px;
+  }
+
+  .title-text .tagline {
+    font-size:16px;
+  }
+}
+/* Basic responsive navbar styling */
+nav {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px 20px;
+  background-color: #ffccdd; /* or your theme color */
+}
+
+nav .logo{
+  object-fit: contain;
+  width: 100px;
+  height: auto;
+  display: block;
+  margin: 10px auto;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Responsive: Stack nav links on small screens */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  nav ul li {
+    width: 100%;
+    padding: 8px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 10px;
+  }
+
+  .site-header h1 {
+    font-size: 28px;
+    white-space: normal;
+  }
+
+  .site-header .tagline {
+    font-size: 16px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .navbar a {
+    font-size: 14px;
+  }
+}
+@media (max-width: 480px) {
+  .logo{
+    width: 70px;
+  }
+}

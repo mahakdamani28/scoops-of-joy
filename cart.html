@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Cart - Scoops Of Joy</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
+    <!-- AOS CSS -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header" id="home">
+        <div class="header-content">
+            <img src="https://media.istockphoto.com/id/491828206/photo/ice-cream-cart.jpg?s=2048x2048&w=is&k=20&c=m8UBL2s4Uqd2XJxNwwuhO2J8IJXjfi1kCxt2jsiLCSk=" alt="Icecream Cart" class="cart-icon"/>
+        <div class="title-text">
+        <h1 data-aos="zoom in" >Scoops Of Joy  🍦  </h1>
+        <p data-aos="fade-down" class="tagline">Taste the magic in every scoop! :) 🍨  </p>
+        <img src="brand_logo.jpg" alt="brand logo" class="logo">
+        </div>
+        </div>
+    </header>
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html" id="cart-link">🛒 Cart (<span id="cart-count">0</span>)</a>
+    </nav>
+
+
+  <!-- Main Cart Section -->
+  <section class="container">
+    <h2>Your Cart</h2>
+    <div id="cart-items" class="cart-items"></div>
+    <p id="total">Total: ₹0</p>
+  </section>
+<style>
+.remove-btn:hover {
+    background-color: #e60000;
+}
+.remove-btn, .buy-btn {
+  background-color: #ff4081;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  margin-left: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.buy-btn:hover {
+  background-color:#388E3C;
+}
+</style>
+  <!-- Footer -->
+  <footer>
+  <div class="footer-container">
+    <div class="footer-left">
+      <h3>Scoops of Joy</h3>
+      <p>23,Yash Plaza, Ambedkar Square, Nagpur, Maharashtra</p>
+      <p>📞 +91 8149645247</p>
+      <p>📧 info@scoopsofjoy.com</p>
+    </div>
+    <div class="footer-right">
+      <a href="https://www.instagram.com" target="_blank">Instagram</a>
+      <a href="https://www.facebook.com" target="_blank">Facebook</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+  </div>
+</footer>
+  <!-- Script -->
+  <script>
+    function updateCartCount() {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      document.getElementById("cart-count").innerText = cart.length;
+    }
+
+    function displayCart() {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const container = document.getElementById("cart-items");
+  let total = 0;
+  container.innerHTML = "";
+
+  if (cart.length === 0) {
+    container.innerHTML = "<p>Your cart is empty.</p>";
+  } else {
+    cart.forEach((item, index) => {
+      if (item && item.name && item.price) {
+        const div = document.createElement("div");
+        div.innerHTML = `
+          <p>
+            ${item.name} - ₹${item.price}
+            <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
+            <button class="buy-btn" onclick="buyNow('${item.name}', ${item.price})">Buy Now</button>
+          </p>
+        `;
+        container.appendChild(div);
+        total += item.price;
+      } else {
+        console.warn("Invalid cart item at index", index, item);
+      }
+    });
+  }
+
+  document.getElementById("total").innerText = "Total: ₹" + total;
+}
+function buyNow(name,price) {
+  const item={name,price};
+  localStorage.setItem("buyItem",JSON.stringify(item));
+  window.location.href="checkout.html";
+}
+
+function removeFromCart(index) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.splice(index, 1); // Remove the item
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+  displayCart(); // Re-render cart
+}
+
+    // On page load
+    document.addEventListener("DOMContentLoaded", function () {
+      updateCartCount();
+      displayCart();
+    });
+  </script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"> </script>
+    <script src="script.js"></script>
+</body>
+</html>
